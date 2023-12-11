@@ -1,0 +1,203 @@
+.catalog {
+    &__container {
+        max-width: 1430px;
+        margin: 164px auto 180px;
+        padding: 0 15px;
+    }
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+        justify-content: center;
+        gap: 40px;
+    }
+    &__card {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 371px;
+        background-color: $color-bg-secondary;
+        border-radius: 20px;
+        position: relative;
+            &:hover &-img {
+                scale: 120%;
+            }
+            &-img {
+                position: absolute;
+                transition: scale .3s linear;
+                max-width: 100%;
+                width: auto;
+                height: auto;
+                    &_type {
+                        &_laptop {
+                            top: -10px;
+                            left: 12px;
+                        }
+                        &_pc {
+                            top: -21px;
+                            left: 115px;
+                        }
+                        &_servers {
+                            top: 81px;
+                            left: 51px;
+                        }
+                        &_emc {
+                            top: 59px;
+                            left: 75px;
+                        }
+                        &_spares {
+                            top: 38px;
+                            left: 87px;
+                        }
+                    }
+            }
+            &-text {
+                position: absolute;
+                left:40px;
+                bottom: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            &-amount {
+                @include font($font-size-ml, $font-weight-regular, 133%, $color-text-secondary);
+            }
+            &-name {
+                @include font($font-size-xl, $font-weight-medium, 150%, $color-text-primary);
+            }
+            &-id {
+                @include font($font-size-xl, $font-weight-light, 150%, $color-text-secondary);
+                position: absolute;
+                left: 40px;
+                top: 40px;
+            }
+            &_special {
+                background-color: transparent;
+            }
+    }
+    &__title {
+        @include title;
+        max-width: 380px;
+        line-height: 50px;
+    }
+    &__subtitle {
+        @include subtitle;
+        max-width: 370px;
+        line-height: 150%;
+    }
+}
+
+@include desktop {
+    .catalog {
+        &__cards {
+            gap: 20px;
+        }
+        &__card {
+            &-img {
+                &_type {
+                    &_laptop {
+                        top: 15px;
+                        left: 21px;
+                        width: 302px;
+                        height: 178px;
+                    }
+                    &_pc {
+                        top: 10px;
+                        left: 99px;
+                        width: 210px;
+                        height: 193px;
+                    }
+                    &_servers {
+                        top: 63px;
+                        left: 39px;
+                        width: 264px;
+                        height: 107px;
+                    }
+                    &_emc {
+                        top: 46px;
+                        left: 58px;
+                        width: 226px;
+                        height: 124px;
+                    }
+                    &_spares {
+                        top: 29px;
+                        left: 68px;
+                        width: 253px;
+                        height: 167px;
+                    }
+
+                }
+            }
+            &-amount {
+                @include font($font-size-s, $font-weight-regular, 133%, $color-text-secondary);
+            }
+            &-name {
+                @include font($font-size-special, $font-weight-medium, 150%, $color-text-primary);
+            }
+            &-id {
+                @include font($font-size-special, $font-weight-light, 150%, $color-text-secondary);
+            }
+            &_special {
+                height: 234px;
+            }
+        }
+        &__title {
+            margin-bottom: 20px;
+            max-width: 250px
+        }
+        &__subtitle {
+            margin-bottom: 30px;
+            line-height: 150%
+        }
+        &__container {
+            margin: 120px auto 120px;
+        }
+    }
+}
+
+@include tablet {
+    .catalog {
+        &__card {
+            padding-bottom: 20px;
+            &-img {
+                &_type {
+                    &_laptop {
+                        width: 302px;
+                        height: 178px;
+                    }
+                    &_pc {
+                        width: 210px;
+                        height: 193px;
+                    }
+                    &_servers {
+                        width: 264px;
+                        height: 107px;
+                    }
+                    &_emc {
+                        width: 226px;
+                        height: 124px;
+                    }
+                    &_spares {
+                        width: 253px;
+                        height: 167px;
+                    }
+                }
+            }
+            &-id {
+                left: 20px;
+                top: 20px;
+            }
+            &-text {
+                position: absolute;
+                left:20px;
+                bottom: 20px;
+                gap: 0px;
+            }
+            &:nth-child(2) {
+                height: 275px;
+            }
+            &:nth-child(n+3) {
+                height: 290px;
+            }
+        }   
+    }
+}

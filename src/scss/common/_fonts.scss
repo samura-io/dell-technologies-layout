@@ -1,0 +1,32 @@
+$path: unquote("../vendor/fonts/");
+
+@mixin font-face($font-family, $font-weight, $woff2) {
+     font-family: $font-family;
+     font-style:  normal;
+     font-weight: $font-weight;
+     font-display: swap;
+     src: url(quote(#{$path+$woff2})) format("woff2");
+}
+
+@font-face {
+     @include font-face('Roboto', 100,"roboto-100.woff2");
+}
+@font-face {
+     @include font-face('Roboto', 300,"roboto-300.woff2");
+}
+@font-face {
+     @include font-face('Roboto', 400,"roboto-400.woff2");
+}
+@font-face {
+     @include font-face('Roboto', 700,"roboto-700.woff2");
+}
+
+@font-face {
+     @include font-face('Euclid Circular A', 300,"EuclidCircularA-300.woff2");
+}
+@font-face {
+     @include font-face('Euclid Circular A', 700,"EuclidCircularA-700.woff2");
+}
+@font-face {
+     @include font-face('Circe', 700,"Circe-700.woff2");
+}

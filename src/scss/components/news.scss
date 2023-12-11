@@ -1,0 +1,160 @@
+.news {
+    background-color: $color-bg-primary;
+    margin:  172px 0;
+    &__container {
+        max-width: 1430px;
+        padding: 0 30px 0 15px;
+        margin: 0 auto;
+    }
+    &__case {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        max-width: 720px;
+    }
+    &__title {
+        @include title;
+        margin-bottom: 25px;
+    }
+    &__subtitle {
+        @include subtitle;
+        margin-bottom: 69px;
+    }
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+        row-gap: 40px;
+        column-gap: 65px;
+    }
+    &__mask-container {
+        width: 100%;
+        margin-top: -45px;
+        top: 72%;
+        position: absolute;
+        & button {
+            position: absolute;
+            top: 26px;
+            right: 9%;
+        } 
+    }
+    &__mask {
+        width: 100.5%;
+    }
+    &__card {
+        box-shadow: 0 0 20px -12px $color-bg-tertiary;
+        height: 365px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-radius: 40px 0;
+        cursor: pointer;
+        &-img {
+            border-radius: 40px 0 0 0;
+        }
+        &-info {
+            position: absolute;
+            z-index: 999;
+            bottom: 27px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        &-title {
+            @include font($font-size-xl, $font-weight-bold, 130%, $color-text-primary);
+            max-width: 270px;
+            margin-bottom: 11px;
+        }
+        &-subtitle {
+            max-width: 365px;
+            @include font($font-size-xs, $font-weight-medium, 150%, $color-text-primary);
+        }
+    }
+    &__date-container {
+        position: absolute;
+        width: 50px;
+        height: 97px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        right: -25px;
+        top: 64px;
+        z-index: 9999;
+        background-color: $color-bg-primary;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        overflow: visible;
+        box-shadow: 0 0 20px -12px $color-bg-tertiary;
+    }
+    &__day {
+        @include font(20px, $font-weight-bold, normal, $color-text-primary);
+    }
+    &__mounth {
+        @include font(10px, $font-weight-regular, normal, $color-text-primary);
+    }
+    
+}
+
+@include laptop {
+    .news {
+        margin:  120px 0;
+        &__case {
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+        &__title {
+            margin-bottom: 20px;
+        }
+        &__subtitle {
+            @include subtitle;
+            margin-bottom: 30px;
+        }
+        & .button__element {
+            order: -1;
+        }
+    }
+}
+
+@include mobile {
+    .news {
+        &__cards {
+            row-gap: 20px;
+            justify-items: center;
+        }
+        &__card {
+            height: 292px;
+            width: 324px;
+            &-img {
+                width: 324px;
+            }
+            &-info {
+                bottom: 15px;
+                left: 20px;
+            }
+            &-subtitle {
+                max-width: 240px;
+            }
+            &-title {
+                margin-bottom: 7px;
+            }
+            &:nth-child(n+4){
+                display: none;
+            }
+        }
+        &__date-container{
+            width: 39px;
+            height: 76px;
+            right: -20px;
+            top: 54px;
+        }
+        &__mask-container {
+            width: 324px;
+            margin-top: -60px;
+        }
+    }
+}

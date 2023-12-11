@@ -1,0 +1,211 @@
+.header {
+    background-color: $color-bg-primary;
+    position: relative;
+    &__container {
+        max-width: 1430px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 123px;
+        padding: 0 15px;
+    }
+    &__logo {
+        width: 70px;
+        height: 70px;
+        margin-right: 61px;
+    }
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 44px;
+        flex-grow: 1;
+        transition: left .3s linear;
+    }
+    &__link {
+        @include font($font-size-s, $font-weight-medium, normal, $color-text-primary);
+        text-decoration: none;
+        display: flex;
+        text-wrap: nowrap;
+            &_type {
+                &_search {
+                    cursor: default;
+                    margin-left: 44px;
+                    width: 100%;
+                    width: 18px;
+                    height: 18px;
+                    margin-right: auto;
+                    flex-basis: 100%;
+                }
+            }
+    }
+    &__link-image{
+        cursor: pointer;
+        transition: opacity .3s linear;
+            &:hover {
+                opacity: .6;
+            }
+    }
+    &__menu {
+        display: flex;
+        gap: 30px;
+    }
+    &__btn {
+        position: relative;
+        width: 49px;
+        height: 49px;
+        border-radius: 50%;
+        border: 0;
+        background-color: $color-accent-gray;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: background-color .3s linear;
+        &_type {
+            &_profile {
+                background-image: url(../images/icons/profile.svg);
+                    &:hover .profile {
+                        display: flex;
+                    }
+            }
+            &_compare {
+                background-image: url(../images/icons/compare.svg);
+            }
+            &_liked {
+                background-image: url(../images/icons/liked.svg);
+            }
+            &_wallet {
+                background-image: url(../images/icons/wallet.svg);
+            }
+            &_burger {
+                background-image: url(../images/icons/burger.svg);
+                display: none;
+            }
+        }
+        &_open {
+            background-image: url(../images/icons/close.svg);
+        }
+        &:hover {
+            background-color: $color-accent-blue;
+        }
+    }
+    &__notification {
+        width: 16px;
+        height: 16px;
+        background-color: $color-accent-blue;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        @include font(12px, $font-weight-bold, 1.4, $color-text-tertiary);
+    }
+    &__shadow {
+        left: 150%;
+        opacity: 0;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        top: 123px;
+        transition: opacity .3s linear;
+            &_active {
+                left: 0;
+                opacity: 1;
+            }
+    }
+}
+
+@include desktop {
+    .header {
+        &__nav {
+            gap: 10px;
+        }
+        &__logo {
+            margin-right: 20px;
+        }
+    }
+}
+
+@include laptop {
+    .header {
+        &__nav {
+            gap: 18px;
+        }
+        &__btn {
+            &_type {
+                &_compare {
+                    display: none;
+                }
+                &_liked {
+                    display: none;
+                }
+                &_profile {
+                    &:hover .profile {
+                        display: none;
+                    }
+            }
+            }
+            
+        }    
+    }
+}
+
+@include tablet {
+    .header {
+        &__nav {
+            position: fixed;
+            z-index: 9999;
+            flex-direction: column;
+            width: 100vw;
+            align-items: flex-start;
+            gap: 45px;
+            flex-grow: 0;
+            background-color: $color-bg-primary;
+            top: 123px;
+            left: 100%;
+            padding: 56px 0 64px;
+            height: 390px;
+                &_open {
+                    left: 0;
+                }
+        }
+        &__link {
+            margin-left: 38px;
+                &_type {
+                    &_search {
+                        margin: 0 30px 0 auto;
+                        flex-basis: auto;
+                    }
+                }
+        } 
+        &__btn {
+            &_type {
+                &_burger {
+                    display: block;
+                }
+            } 
+        }
+        &__menu {
+            gap: 15px
+        }           
+    }
+}
+
+@include mobile {
+    .header {
+        &__logo {
+            width: 60px;
+            height: 60px;
+        }
+        &__container {
+            height: 90px;
+        }
+        &__shadow {
+            top: 90px;
+        }
+        &__nav {
+            top: 90px;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+.footer {
+    margin: 60px 0 40px;
+    &__container {
+        max-width: 1430px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 55px;
+        border-bottom: 1px solid #E5E5E5;
+        flex-wrap: wrap;
+    }
+    &__logo {
+        width: 112px;
+        height: 112px;
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+            &_type {
+                &_support {
+                    flex-basis: 23%;
+                    align-self: flex-start;
+                }
+            }
+    }
+    &__name {
+        margin-bottom: 5px;
+        @include font($font-size-xl, $font-weight-medium, normal, $color-text-primary);
+    }
+    &__link {
+        display: flex;
+        text-decoration: none;
+        @include font($font-size-m, $font-weight-regular, normal, $color-text-primary);
+        transition: opacity .3s linear;
+            &:hover {
+                opacity: 0.6;
+            }
+    }
+    &__bottom {
+        margin: 35px 0 45px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__case {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+    }
+    &__case-title {
+        @include font($font-size-m, $font-weight-medium, 133%, $color-text-secondary);
+    }
+    &__case-info {
+        @include font($font-size-ml, $font-weight-medium, 150%, $color-text-primary);
+    }
+    &__social {
+        transition: opacity .3s linear;
+        cursor: pointer;
+            &:hover {
+                opacity: 0.6;
+            }
+    }
+}
+
+@include laptop {
+    .footer {
+        &__bottom {
+            margin: 35px 0 45px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        &__social {
+            margin-top: 20px;
+            align-self: flex-start;
+        }
+    }
+}
+
+@include tablet {
+    .footer {
+        &__top {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 30px;
+            row-gap: 20px;
+        }
+        &__logo {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}

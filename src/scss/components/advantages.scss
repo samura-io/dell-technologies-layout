@@ -1,0 +1,192 @@
+.advantages {
+    position: relative;
+    background-color: $color-bg-secondary;
+    padding: 183px 0 46px;
+    &__watermark {
+        position: absolute;
+        top: 152px;
+        left: 0;
+        z-index: -0;
+    }
+    &__container {
+        max-width: 1430px;
+        padding: 0 15px;
+        position: relative;
+        display: flex;
+        margin: 0 auto 180px;
+    }
+    &__img {
+        position: absolute;
+        z-index: 1;
+        left: -80px;
+        top: -96px;
+    }
+    &__empty {
+        width: 50%;
+    }
+    &__text {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 28px;
+        z-index: 999;
+    }
+    &__title {
+        @include title;
+        line-height: 50px;
+        max-width: 518px;
+        margin-bottom: 37px; 
+    }
+    &__subtitle {
+        @include subtitle;
+        max-width: 518px;
+        line-height: 150%;
+        margin-bottom: 41px; 
+    }
+    &__cards {
+        max-width: 1430px;
+        padding: 0 15px;
+        margin: 0 auto;
+        display: grid;
+        gap: 26px;
+        grid-template-columns: repeat(auto-fill, minmax(289px, 1fr));
+    }
+    &__card {
+        background-color: $color-bg-tertiary;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 0 35px 30px;
+        border-radius: 20px;
+        transition: scale .3s linear;
+        cursor: pointer;
+            &:hover {
+                scale: 1.05;
+            }
+            &-logo {
+                width: 70px;
+                height: 70px;
+                padding: 17px;
+                border-radius: 10px;
+                box-sizing: border-box;
+                object-position: center;
+                object-fit: cover;
+                background-color: $color-bg-special;
+                margin-bottom: 25px;
+            }
+            &-vector {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            &-title {
+                width: 100%;
+                font-family: 'Euclid Circular A';
+                @include font($font-size-l, $font-weight-bold, normal, $color-text-tertiary);
+                margin-bottom: 13px;
+                max-width: 274px;
+            }
+            &-subtitle {
+                font-family: 'Euclid Circular A';
+                @include font($font-size-m, $font-weight-regular, normal, $color-text-secondary);
+                max-width: 274px;
+            }
+    }
+}
+
+@include desktop {
+    .advantages {
+        &__watermark {
+            width: 335px;
+            height: 121px;
+            top: 400px;
+            left: 450px;
+
+        }
+        &__container {
+            width: 100%;
+        }
+        &__img {
+            left: auto;
+            top: auto;
+            bottom: 0;
+            right: 0;
+            height: 250px;
+        }
+        &__empty {
+            display: none;
+        }
+    }
+}
+
+@include tablet {
+    .advantages {
+        padding: 108px 0 125px;
+        &__watermark {
+            width: 335px;
+            height: 121px;
+            top: 370px;
+            left: 14px;
+
+        }
+        &__container {
+            width: 100%;
+            overflow: hidden;
+            height: 410px;
+            margin-bottom: 0;
+        }
+        &__img {
+            left: auto;
+            top: auto;
+            bottom: 40px;
+            right: -45px;
+            height: 194px;
+        }
+        &__empty {
+            display: none;
+        }
+        &__title {
+            margin-bottom: 29px; 
+        }
+        &__subtitle {
+            max-width: 270px;
+            margin-bottom: 30px; 
+            line-height: 150%;
+        }
+        &__text {
+            width: 100%;
+            margin-left: 0;
+
+        }
+        &__cards {
+            gap: 18px;
+        }
+        &__card {
+            border-radius: 10px;
+            padding: 15px;
+            &-logo {
+                width: 50px;
+                height: 50px;
+                padding: 9px;
+
+                margin-bottom: 13px;
+            }
+            &-vector {
+                width: 121px;
+                height: 64px;
+                right: -13px;
+            }
+            &-title {
+                @include font($font-size-ml, $font-weight-bold, normal, $color-text-tertiary);
+                margin-bottom: 13px;
+            }
+            &-subtitle {
+                @include font($font-size-m, $font-weight-regular, normal, $color-text-secondary);
+            }
+            &:nth-child(4) &-title::before{
+                content: "Мы являемся ";
+            }
+        } 
+        
+    }
+}

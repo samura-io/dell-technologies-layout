@@ -1,0 +1,62 @@
+.profile {
+    border-radius: 20px;
+    position: absolute;
+    top: 150%;
+    left: -360%;
+    background-color: $color-bg-primary;
+    width: 405px;
+    height: 400px; // Удалить потом
+    box-shadow: 0px 5px 15px 10px rgba(0, 0, 0, 0.126);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 999;
+        &:hover {
+            display: flex;
+        }
+        &__rectangle {
+            width: 130px;
+            height: 145px;
+            background-color: $color-bg-primary;
+            position: absolute;
+            top: -18%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url(../images/icons/rectangle.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: transparent;
+        }
+        &__link {
+            @include font(20px, $font-weight-medium, 150%, $color-text-primary);
+            padding: 20px 30px;
+            border-bottom: 1px solid $color-bg-secondary;
+            width: 100%;
+            text-align: start;
+            transition: opacity .3s linear;
+            text-decoration: none;
+                &:last-child {
+                    border-bottom: none;
+                }
+                &:hover {
+                    opacity: 0.6;
+                }
+        }
+        &__account {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            padding: 33px 30px;
+        }
+        &__avatar {
+            width: 49px;
+            height: 49px;
+            background-color: $color-accent-gray;
+            background-image: url(../images/icons/profile.svg);
+            border-radius: 60%;
+        }
+        &__username {
+            text-decoration: none;
+        }
+}
